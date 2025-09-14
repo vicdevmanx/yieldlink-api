@@ -16,6 +16,9 @@ const __dirname = path.dirname(__filename);
 
 // Import routes
 import authRoutes from "./routes/authRoutes.js";
+import cropRoutes from "./routes/cropRoutes.js";
+import cropTrackerRoutes from "./routes/cropTrackerRoutes.js";
+import listingRoutes from "./routes/listingRoutes.js";
 // Later we’ll add: import cropRoutes from "./routes/cropRoutes.js";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
@@ -41,8 +44,9 @@ app.use(
 
 // Routes
 app.use("/api/auth", authRoutes);
-// app.use("/api/crops", cropRoutes);   <-- will add later
-// app.use("/api/users", userRoutes);   <-- will add later
+app.use("/api/crops", cropRoutes);
+app.use("/api/crop-tracker", cropTrackerRoutes);
+app.use("/api/marketplace", listingRoutes);
 
 // Health check
 app.get("/", (req, res) => {
