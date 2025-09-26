@@ -19,6 +19,8 @@ import authRoutes from "./routes/authRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
 import cropTrackerRoutes from "./routes/cropTrackerRoutes.js";
 import listingRoutes from "./routes/listingRoutes.js";
+import locationRoutes from "./routes/locationRoutes.js";
+import seasonRoutes from "./routes/seasonRoutes.js";
 // Later we’ll add: import cropRoutes from "./routes/cropRoutes.js";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
@@ -47,7 +49,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/crops", cropRoutes);
 app.use("/api/crop-tracker", cropTrackerRoutes);
 app.use("/api/marketplace", listingRoutes);
-
+app.use("/api/location", locationRoutes);
+app.use("/api/season", seasonRoutes);
 // Health check
 app.get("/", (req, res) => {
   res.send("🌱 YieldLink API running...");
